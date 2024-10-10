@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un Incident</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Modifier le Statut de l'Incident</h1>
+        <nav>
+            <a href="/home.html">Accueil</a> | 
+            <a href="/incidents_list.html">Voir la liste des incidents</a>
+        </nav>
+    </header>
+    <main>
+        <form method="post" action="/incidents/update?id=1">
+            <div>
+                <label for="status">Statut</label>
+                <select name="status" id="status">
+                    <option value="open">Ouvert</option>
+                    <option value="in_progress">En cours</option>
+                    <option value="resolved">Résolu</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Mettre à jour</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gestion des Incidents</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Incident</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Créer un Incident</h1>
+        <nav>
+            <a href="/home">Accueil</a> | 
+            <a href="/incidents">Voir la liste des incidents</a>
+        </nav>
+    </header>
+    <main>
+        <form method="post" action="/incidents/create">
+            <div>
+                <label for="title">Titre</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea name="description" id="description" required></textarea>
+            </div>
+            <div>
+                <button type="submit">Enregistrer</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Gestion des Incidents</p>
+    </footer>
+</body>
+</html>

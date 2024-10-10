@@ -1,0 +1,16 @@
+<?php
+require_once '../src/Model/IncidentModel.php';
+$incidentModel = new IncidentModel();
+$incidents = $incidentModel->getAll();
+?>
+<ul>
+    <?php foreach ($incidents as $incident): ?>
+        <li>
+            <h3><?= htmlspecialchars($incident['title']); ?></h3>
+            <p><?= htmlspecialchars($incident['description']); ?></p>
+            <p><strong>Statut :</strong> <?= htmlspecialchars($incident['status']); ?></p>
+            <a href="/incident_update_form.html?id=<?= $incident['id']; ?>">Modifier</a> |
+            <a href="/incidents/delete?id=<?= $incident['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet incident ?');">Supprimer</a>
+        </li>
+    <?php endforeach; ?>
+</ul>

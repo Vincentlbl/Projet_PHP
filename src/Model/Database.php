@@ -4,11 +4,17 @@ class Database {
 
     public static function getConnection() {
         if (!self::$pdo) {
-            $dbHost = getenv('localhost');
-            $dbName = getenv('catalog_db');
-            $dbUser = getenv('root');
-            $dbPass = getenv('');
-            self::$pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+            $dbHost = 'localhost';
+            $dbName = 'gestion_incidents';
+            $dbUser = 'root';
+            $dbPass = ''; // Remplace par ton mot de passe MySQL
+
+            try {
+                self::$pdo = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8", $dbUser, $dbPass);
+                self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die('Erreur : ' . $e->getMessage());
+            }
         }
         return self::$pdo;
     }
